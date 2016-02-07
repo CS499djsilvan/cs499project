@@ -1,56 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingLeft="10dp"
-    android:paddingRight="10dp"
-    android:paddingTop="10dp">
-
-    <TextView
-        android:text="SLEEP BUDDY"
-        android:textSize="50dp"
-        android:layout_weight="4"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <EditText
-        android:hint="Username"
-        android:layout_weight="2"
-        android:gravity="bottom"
+    <TabHost xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@android:id/tabhost"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content">
 
-    <EditText
-        android:hint="Password"
-        android:layout_weight="2"
-        android:gravity="bottom"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <FrameLayout
+                android:id="@android:id/tabcontent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_above="@android:id/tabs"/>
 
-    <Button
-        android:hint="Login"
-        android:layout_gravity="center"
-        android:paddingLeft="50dp"
-        android:paddingRight="50dp"
-        android:layout_weight="1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="30dp" />
-
-    <TextView
-        android:layout_marginTop="5dp"
-        android:text="Forgot your login details?"
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <Button
-        android:layout_marginTop="20dp"
-        android:text="Don't have an account? Sign up here!"
-        android:layout_width="match_parent"
-        android:layout_weight="1"
-        android:layout_height="wrap_content" />
-</LinearLayout>
+            <TabWidget
+                android:id="@android:id/tabs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"/>
+        </RelativeLayout>
+</TabHost>

@@ -1,52 +1,49 @@
 package com.example.david.firstapp;
 
+import android.app.TabActivity;
+import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.widget.TabHost;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends TabActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        setContentView(R.layout.content_main);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-    }
+        TabHost host = getTabHost();
+        Resources res = getResources();
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
+        //Tab 1
+        TabHost.TabSpec spec = host.newTabSpec("Tab1");
+        spec.setContent(new Intent(this, AlarmActivity.class));
+        spec.setIndicator("Alarm");
+        host.addTab(spec);
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+        //Tab 2
+        spec = host.newTabSpec("Tab2");
+        spec.setContent(new Intent(this, TipsActivity.class));
+        spec.setIndicator("", res.getDrawable(R.drawable.blue_thumb_default));
+        host.addTab(spec);
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
+        //Tab 3
+        spec = host.newTabSpec("Tab3");
+        spec.setContent(new Intent(this, JournalActivity.class));
+        spec.setIndicator("Journal");
+        host.addTab(spec);
 
-        return super.onOptionsItemSelected(item);
+        //Tab 4
+        spec = host.newTabSpec("Tab4");
+        spec.setContent(new Intent(this, NightlightActivity.class));
+        spec.setIndicator("Light");
+        host.addTab(spec);
+
+        //Tab 5
+        spec = host.newTabSpec("Tab5");
+        spec.setContent(new Intent(this, LoginActivity.class));
+        spec.setIndicator("Login");
+        host.addTab(spec);
     }
 }
