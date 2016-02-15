@@ -4,11 +4,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginTop="5dp"
-    android:layout_marginBottom="10dp">
+    android:layout_marginBottom="10dp"
+    android:background="@drawable/nightsky">
 
     <TextView
         android:text="How to get better sleep"
         android:textSize="30dp"
+        android:textColor="@color/white"
+        android:shadowColor="@color/black"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="20"
         android:layout_gravity="center"
         android:gravity="center"
         android:layout_marginBottom="5dp"

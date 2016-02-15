@@ -1,4 +1,4 @@
-package com.example.david.firstapp;
+package com.davidsilvan.sleepbuddy;
 
 import android.app.Activity;
 import android.app.AlarmManager;

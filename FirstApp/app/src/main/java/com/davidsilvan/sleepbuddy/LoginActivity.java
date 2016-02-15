@@ -1,8 +1,8 @@
-package com.example.david.firstapp;
+package com.davidsilvan.sleepbuddy;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
@@ -30,6 +30,10 @@ public class LoginActivity extends Activity {
         ButterKnife.bind(this);
 
         textIcon.setShadowLayer(25, 0, 0, Color.BLACK);
+        Typeface type = Typeface.createFromAsset(getAssets(),"fonts/LobsterTwo-Italic.otf");
+        Typeface type2 = Typeface.createFromAsset(getAssets(),"fonts/LobsterTwo-BoldItalic.otf");
+        textIcon.setTypeface(type);
+        button1.setTypeface(type2);
     }
 
     @OnClick(R.id.loginButton)

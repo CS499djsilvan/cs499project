@@ -1,4 +1,4 @@
-package com.example.david.firstapp;
+package com.davidsilvan.sleepbuddy;
 
 /**
  * Created by David on 2/7/2016.

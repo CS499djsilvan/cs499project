@@ -1,4 +1,4 @@
-package com.example.david.firstapp;
+package com.davidsilvan.sleepbuddy;
 
 import android.app.TabActivity;
 import android.content.Intent;
@@ -25,7 +25,7 @@ public class MainActivity extends TabActivity {
         //Tab 2
         spec = host.newTabSpec("Tab2");
         spec.setContent(new Intent(this, TipsActivity.class));
-        spec.setIndicator("", res.getDrawable(R.drawable.blue_thumb_default));
+        spec.setIndicator("Tips");
         host.addTab(spec);
 
         //Tab 3
@@ -45,5 +45,7 @@ public class MainActivity extends TabActivity {
         spec.setContent(new Intent(this, LoginActivity.class));
         spec.setIndicator("Login");
         host.addTab(spec);
+
+        host.setCurrentTab(2);
     }
 }

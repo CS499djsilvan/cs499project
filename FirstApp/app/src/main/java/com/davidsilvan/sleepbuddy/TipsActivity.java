@@ -1,4 +1,4 @@
-package com.example.david.firstapp;
+package com.davidsilvan.sleepbuddy;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -24,6 +24,8 @@ public class TipsActivity extends Activity {
         add(new Tip("tip number 6"));
         add(new Tip("tip number 7"));
         add(new Tip("tip number 8"));
+        add(new Tip("more tips yo"));
+        add(new Tip("last tip"));
     }};
 
     private TipAdapter tipAdapter;
