@@ -62,12 +62,12 @@ public class NightlightActivity extends Activity {
         window = getWindow();
         contentResolver = getContentResolver();
         brightnessBar.setMax(255);
-        timer = new Timer();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
+        timer = new Timer();
         setNightlightColor();
 
         try {
@@ -112,8 +112,8 @@ public class NightlightActivity extends Activity {
         okColor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //toggleButton.setChecked(false);
-                selectedColor = cp.getColor();
+                timer.cancel();
+                toggleButton.setChecked(false);
                 colorRed = cp.getRed();
                 colorGreen = cp.getGreen();
                 colorBlue = cp.getBlue();
@@ -126,32 +126,41 @@ public class NightlightActivity extends Activity {
 
     @OnClick(R.id.multiColorButton)
     void onClickMultiColorButton() {
-            runOnUiThread(new Runnable() {
+        if (toggleButton.isChecked()) {
+            timer = new Timer();
+            timer.scheduleAtFixedRate(new TimerTask() {
                 @Override
                 public void run() {
-                    if (toggleButton.isChecked()) {
-                    timer.scheduleAtFixedRate(new TimerTask() {
+                    runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
                             if (colorRed > 0 && colorGreen == 255 && colorBlue == 255)
                                 colorRed--;
                             if (colorRed == 0 && colorGreen > 0 && colorBlue == 255)
                                 colorGreen--;
-                            if (colorRed == 0 && colorGreen == 0 && colorBlue > 0)
+                            if (colorRed >= 0 && colorGreen == 0 && colorBlue > 0) {
                                 colorBlue--;
+                                colorRed++;
+                            }
                             if (colorRed < 255 && colorGreen == 0 && colorBlue == 0)
                                 colorRed++;
                             if (colorRed == 255 && colorGreen < 255 && colorBlue == 0)
                                 colorGreen++;
-                            if (colorRed == 255 && colorGreen == 255 && colorBlue < 255)
+                            if (colorRed > 0 && colorGreen == 255 && colorBlue == 0)
+                                colorRed--;
+                            if (colorRed == 0 && colorGreen > 0 && colorBlue < 255) {
+                                colorGreen--;
                                 colorBlue++;
+                            }
+                            setNightlightColor();
                         }
-                    }, 0, 100);
-
-                    setNightlightColor();
+                    });
                 }
-            }
-        });
+            }, 0, 75);
+        }
+
+        else
+            timer.cancel();
     }
 
     public void setNightlightColor() {

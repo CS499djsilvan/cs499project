@@ -18,34 +18,28 @@ public class MainActivity extends TabActivity {
 
         //Tab 1
         TabHost.TabSpec spec = host.newTabSpec("Tab1");
-        spec.setContent(new Intent(this, AlarmActivity.class));
-        spec.setIndicator("Alarm");
-        host.addTab(spec);
-
-        //Tab 2
-        spec = host.newTabSpec("Tab2");
         spec.setContent(new Intent(this, TipsActivity.class));
         spec.setIndicator("Tips");
         host.addTab(spec);
 
-        //Tab 3
-        spec = host.newTabSpec("Tab3");
+        //Tab 2
+        spec = host.newTabSpec("Tab2");
         spec.setContent(new Intent(this, JournalActivity.class));
         spec.setIndicator("Journal");
         host.addTab(spec);
 
-        //Tab 4
-        spec = host.newTabSpec("Tab4");
+        //Tab 3
+        spec = host.newTabSpec("Tab3");
         spec.setContent(new Intent(this, NightlightActivity.class));
         spec.setIndicator("Light");
         host.addTab(spec);
 
-        //Tab 5
-        spec = host.newTabSpec("Tab5");
+        //Tab 4
+        spec = host.newTabSpec("Tab4");
         spec.setContent(new Intent(this, LoginActivity.class));
-        spec.setIndicator("Login");
+        spec.setIndicator("Settings");
         host.addTab(spec);
 
-        host.setCurrentTab(2);
+        host.setCurrentTab(1);
     }
 }
