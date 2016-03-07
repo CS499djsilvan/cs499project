@@ -27,7 +27,6 @@ public class TipAdapter extends ArrayAdapter<Tip> {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        Log.i("Test", "getView() called at position " + position);
         LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(
                 Context.LAYOUT_INFLATER_SERVICE);
         View view = layoutInflater.inflate(R.layout.tip_list_item, parent, false);

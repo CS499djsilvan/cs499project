@@ -2,7 +2,6 @@ package com.davidsilvan.sleepbuddy;
 
 import android.app.TabActivity;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.widget.TabHost;
 
@@ -14,7 +13,6 @@ public class MainActivity extends TabActivity {
         setContentView(R.layout.content_main);
 
         TabHost host = getTabHost();
-        Resources res = getResources();
 
         //Tab 1
         TabHost.TabSpec spec = host.newTabSpec("Tab1");
@@ -31,13 +29,7 @@ public class MainActivity extends TabActivity {
         //Tab 3
         spec = host.newTabSpec("Tab3");
         spec.setContent(new Intent(this, NightlightActivity.class));
-        spec.setIndicator("Light");
-        host.addTab(spec);
-
-        //Tab 4
-        spec = host.newTabSpec("Tab4");
-        spec.setContent(new Intent(this, LoginActivity.class));
-        spec.setIndicator("Settings");
+        spec.setIndicator("Nightlight");
         host.addTab(spec);
 
         host.setCurrentTab(1);

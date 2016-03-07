@@ -3,10 +3,13 @@ package com.davidsilvan.sleepbuddy;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.os.Environment;
+import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 import java.io.File;
@@ -23,11 +26,14 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
     private Context context;
     private List<String> headerList;
     private HashMap<String, List<String>> childList;
+    private CheckBox checkBox;
+    private int check;
 
-    public ExpandableListAdapter(Context context, List<String> headerList, HashMap<String, List<String>> childList) {
+    public ExpandableListAdapter(Context context, List<String> headerList, HashMap<String, List<String>> childList, int check) {
         this.context = context;
         this.headerList = headerList;
         this.childList = childList;
+        this.check = check;
     }
 
     @Override
@@ -65,6 +71,14 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         TextView textChild = (TextView) convertView.findViewById(R.id.recordingListItem);
         TextView textDayOfMonth = (TextView) convertView.findViewById(R.id.textViewDayOfMonth);
         TextView textDayOfWeek = (TextView) convertView.findViewById(R.id.textViewDayOfWeek);
+        checkBox = (CheckBox) convertView.findViewById(R.id.checkbox);
+
+        if (check == 0)
+            hideCheckbox();
+        else
+            showCheckbox();
+
+        checkBox.setFocusable(false);
         textChild.setText(childString);
         textDayOfMonth.setText(dayOfMonth);
         textDayOfWeek.setText(dayOfWeek);
@@ -109,5 +123,17 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
     @Override
     public boolean isChildSelectable(int groupPosition, int childPosition) {
         return true;
+    }
+
+    void showCheckbox() {
+        checkBox.setVisibility(View.VISIBLE);
+    }
+
+    void hideCheckbox() {
+        checkBox.setVisibility(View.INVISIBLE);
+    }
+
+    int getCheck() {
+        return check;
     }
 }

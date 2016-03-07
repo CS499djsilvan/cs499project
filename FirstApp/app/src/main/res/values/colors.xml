@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#23AFAF</color>
+    <color name="colorPrimary">#1976D2</color>
+    <color name="colorPrimaryDark">#3F51B5</color>
+    <color name="actionBarColor">#536DFE</color>
     <color name="white">#FFFFFF</color>
     <color name="logoColor">#EEE0E5</color>
     <color name="black">#000000</color>
@@ -10,5 +10,12 @@
     <color name="darkGray">#888888</color>
     <color name="teal">#23AFAF</color>
     <color name="coolBlue">#0078C8</color>
-    <color name="maroon">#C32D32</color>
+    <color name="red">#E50000</color>
+    <color name="darkerRed">#990000</color>
+    <color name="purple">#A020F0</color>
+    <color name="darkerPurple">#694489</color>
+    <color name="lavender">#BFC7E7</color>
+    <color name="darkLavender">#5C6BC0</color>
+    <color name="coolGreen">#009977</color>
+    <color name="newBlue">#2196F3</color>
 </resources>

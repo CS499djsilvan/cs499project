@@ -3,14 +3,12 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginTop="5dp"
-    android:layout_marginBottom="10dp"
     android:background="@drawable/nightsky">
 
     <TextView
         android:text="How to get better sleep"
         android:textSize="30dp"
-        android:textColor="@color/white"
+        android:textColor="@color/logoColor"
         android:shadowColor="@color/black"
         android:shadowDx="0"
         android:shadowDy="0"
@@ -18,6 +16,7 @@
         android:layout_gravity="center"
         android:gravity="center"
         android:layout_marginBottom="5dp"
+        android:paddingTop="5dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textStyle="bold"/>

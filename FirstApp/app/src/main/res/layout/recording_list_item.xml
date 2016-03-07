@@ -16,6 +16,7 @@
             android:id="@+id/textViewDayOfMonth"
             android:text="13"
             android:textSize="24dp"
+            android:textColor="@color/coolBlue"
             android:textStyle="bold"
             android:layout_gravity="left"
             android:layout_width="wrap_content"
@@ -24,6 +25,7 @@
             android:id="@+id/textViewDayOfWeek"
             android:text="Sat"
             android:textSize="18dp"
+            android:textColor="@color/black"
             android:layout_gravity="left"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
@@ -34,6 +36,15 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:textSize="20dp"/>
+        android:textSize="20dp"
+        android:textColor="@color/black"/>
+
+    <CheckBox
+        android:id="@+id/checkbox"
+        android:visibility="invisible"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"/>
 
 </LinearLayout>

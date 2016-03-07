@@ -31,11 +31,11 @@ public class NightlightActivity extends Activity {
 
     private String toast = "Tap screen to change color";
     private ColorPicker cp;
-    private int selectedColor;
     private int colorRed;
     private int colorGreen;
     private int colorBlue;
     private int brightness;
+    private int check;
 
     private SeekBar brightnessBar;
     private ContentResolver contentResolver;
@@ -56,6 +56,7 @@ public class NightlightActivity extends Activity {
         ButterKnife.bind(this);
 
         brightnessBar = (SeekBar) findViewById(R.id.brightnessBar);
+        check = 0;
         colorRed = 255;
         colorGreen = 255;
         colorBlue = 255;
@@ -77,7 +78,7 @@ public class NightlightActivity extends Activity {
             Log.e("Error", "Cannot access system brightness");
         }
 
-        brightnessText.setText("Brightness: " + Integer.toString((int) (brightness/ 2.55)));
+        brightnessText.setText("Brightness: " + Integer.toString((int) (brightness / 2.55)));
         brightnessBar.setProgress(brightness);
         brightnessBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
@@ -100,7 +101,10 @@ public class NightlightActivity extends Activity {
             }
         });
 
-        Toast.makeText(getApplicationContext(), toast, Toast.LENGTH_SHORT).show();
+        if (check < 2) {
+            Toast.makeText(getApplicationContext(), toast, Toast.LENGTH_SHORT).show();
+            check++;
+        }
     }
 
     @OnClick(R.id.nightlight)
