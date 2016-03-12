@@ -12,4 +12,4 @@ Ever wake up from an awesome dream just to find that you forget about most of it
 Coming soon :sunglasses:
 
 ##Author
-- @silvan9145 , Computer Science student at Cal Poly Pomona
+- David Silvan, Computer Science student at Cal Poly Pomona (https://github.com/silvan9145)
