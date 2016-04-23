@@ -14,7 +14,9 @@ Ever wake up from an awesome dream just to find that you forget about most of it
 <a href='http://postimg.org/image/lnv7wis1z/' target='_blank'><img src='http://s31.postimg.org/wngf84ih7/Screenshot_2016_04_21_19_59_42_galaxys4_white_po.png' border='0' alt="Screenshot 2016 04 21 19 59 42 galaxys4 white po" /></a>
 <a href='http://postimg.org/image/obko6vl3b/' target='_blank'><img src='http://s31.postimg.org/bwxw6jtl7/Screenshot_2016_04_22_22_54_18_galaxys4_white_po.png' border='0' alt="Screenshot 2016 04 22 22 54 18 galaxys4 white po" /></a>
 <a href='http://postimg.org/image/3q5wez3if/' target='_blank'><img src='http://s31.postimg.org/biwk6y9hn/Screenshot_2016_04_21_19_58_42_galaxys4_white_po.png' border='0' alt="Screenshot 2016 04 21 19 58 42 galaxys4 white po" /></a>
-
+<a href='http://postimg.org/image/r1u042hs7/' target='_blank'><img src='http://s31.postimg.org/4d4t4i0ej/Screenshot_2016_04_21_20_01_50_galaxys4_white_po.png' border='0' alt="Screenshot 2016 04 21 20 01 50 galaxys4 white po" /></a>
+<a href='http://postimg.org/image/cdj3szhc7/' target='_blank'><img src='http://s31.postimg.org/a8yqrwfpn/Screenshot_2016_04_22_22_59_09_galaxys4_white_po.png' border='0' alt="Screenshot 2016 04 22 22 59 09 galaxys4 white po" /></a>
+<a href='http://postimg.org/image/4m6z862kn/' target='_blank'><img src='http://s31.postimg.org/4m6z862kr/Screenshot_2016_04_22_22_59_17_galaxys4_white_po.png' border='0' alt="Screenshot 2016 04 22 22 59 17 galaxys4 white po" /></a><br /><a target='_blank' href='http://postimage.org/app.php'>windows screenshot</a><br /><br />
 
 ##Author
 - David Silvan, Computer Science student at Cal Poly Pomona (https://github.com/silvan9145)
