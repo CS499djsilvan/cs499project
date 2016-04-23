@@ -9,7 +9,7 @@ Ever wake up from an awesome dream just to find that you forget about most of it
 :warning: Note: requires Android version 4.1.0+
 
 ##Screenshots
-<a href='http://postimage.org/' target='_blank'><img src='http://s31.postimg.org/f0tuvd8cr/Screenshot_2016_04_21_20_00_06_galaxys4_white_po.png' border='0' alt="Screenshot 2016 04 21 20 00 06 galaxys4 white po" /></a>
+<a href='http://postimage.org/' target='_blank'><img src='http://s31.postimg.org/ffn7oshor/Screenshot_2016_04_21_20_00_06_galaxys4_white_po.png' border='0' alt="Screenshot 2016 04 21 20 00 06 galaxys4 white po" /></a>
 
 
 ##Author
