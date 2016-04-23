@@ -9,7 +9,8 @@ Ever wake up from an awesome dream just to find that you forget about most of it
 :warning: Note: requires Android version 4.1.0+
 
 ##Screenshots
-<img src='http://s31.postimg.org/5zmmg7gxz/Screenshot_2016_04_21_20_00_06_galaxys4_white_po.jpg' border='0' alt="Screenshot 2016 04 21 20 00 06 galaxys4 white po" />
+<a href='http://postimg.org/image/5zmmg7gxz/full/' target='_blank'><img src='http://s31.postimg.org/5zmmg7gxz/Screenshot_2016_04_21_20_00_06_galaxys4_white_po.jpg' border='0' alt="Screenshot 2016 04 21 20 00 06 galaxys4 white po" /></a>
+
 
 ##Author
 - David Silvan, Computer Science student at Cal Poly Pomona (https://github.com/silvan9145)
