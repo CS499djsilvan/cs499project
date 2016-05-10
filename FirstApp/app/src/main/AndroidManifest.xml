@@ -3,8 +3,8 @@
     package="com.davidsilvan.sleepbuddy">
 
     <uses-permission android:name="android.permission.RECORD_AUDIO"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
 
     <application
@@ -14,7 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name="com.davidsilvan.sleepbuddy.MainActivity">
+        <activity android:name="com.davidsilvan.sleepbuddy.MainActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,10 +24,18 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.davidsilvan.sleepbuddy.JournalActivity" />
-        <activity android:name="com.davidsilvan.sleepbuddy.TipsActivity" />
-        <activity android:name="com.davidsilvan.sleepbuddy.NightlightActivity" />
-        <activity android:name="com.davidsilvan.sleepbuddy.LoginActivity" />
+        <activity android:name="com.davidsilvan.sleepbuddy.JournalActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+        <activity android:name="com.davidsilvan.sleepbuddy.TipsActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+        <activity android:name="com.davidsilvan.sleepbuddy.NightlightActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+        <activity android:name="com.davidsilvan.sleepbuddy.SettingsActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

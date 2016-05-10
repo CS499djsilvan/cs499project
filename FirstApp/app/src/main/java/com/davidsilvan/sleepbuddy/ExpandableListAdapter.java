@@ -3,17 +3,21 @@ package com.davidsilvan.sleepbuddy;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.os.Environment;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.TextView;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
@@ -26,6 +30,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
     private Context context;
     private List<String> headerList;
     private HashMap<String, List<String>> childList;
+    private ArrayList<String> checkedList;
     private CheckBox checkBox;
     private int check;
 
@@ -34,6 +39,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         this.headerList = headerList;
         this.childList = childList;
         this.check = check;
+        checkedList = new ArrayList<String>();
     }
 
     @Override
@@ -55,7 +61,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
         SimpleDateFormat df2 = new SimpleDateFormat("dd");
         SimpleDateFormat df3 = new SimpleDateFormat("EEE");
-        String childString = (String) getChild(groupPosition, childPosition);
+        final String childString = (String) getChild(groupPosition, childPosition);
         Calendar calendar = Calendar.getInstance();
         File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "SleepBuddy"
                 + File.separator + childString);
@@ -69,9 +75,24 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         }
 
         TextView textChild = (TextView) convertView.findViewById(R.id.recordingListItem);
+        TextView textChildTitle = (TextView) convertView.findViewById(R.id.recordingListItemTitle);
         TextView textDayOfMonth = (TextView) convertView.findViewById(R.id.textViewDayOfMonth);
         TextView textDayOfWeek = (TextView) convertView.findViewById(R.id.textViewDayOfWeek);
         checkBox = (CheckBox) convertView.findViewById(R.id.checkbox);
+
+        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    checkedList.add(childString);
+                }
+                else {
+                    checkedList.remove(childString);
+                }
+            }
+        });
+
+        textChildTitle.setVisibility(View.GONE);
 
         if (check == 0)
             hideCheckbox();
@@ -79,7 +100,35 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
             showCheckbox();
 
         checkBox.setFocusable(false);
-        textChild.setText(childString);
+        if (childString.substring(childString.length() - 4, childString.length()).equals(".txt")) {
+            StringBuilder text = new StringBuilder();
+            textChildTitle.setVisibility(View.VISIBLE);
+            try {
+                BufferedReader br = new BufferedReader(new FileReader(file));
+                String line;
+
+                if ((line = br.readLine()) != null) {
+                    text.append(line);
+                }
+                while ((line = br.readLine()) != null) {
+                    text.append('\n');
+                    text.append(line);
+                }
+                br.close();
+            }
+            catch (IOException e) {
+                text.append("Error loading file contents :-(");
+            }
+
+            textChildTitle.setText("Title:   " + childString.substring(0, childString.length() - 4));
+            textChild.setTextSize(16);
+            textChild.setMaxLines(3);
+            textChild.setEllipsize(TextUtils.TruncateAt.END);
+            textChild.setText("\"" + text + "\"");
+        }
+        else
+            textChild.setText(childString);
+
         textDayOfMonth.setText(dayOfMonth);
         textDayOfWeek.setText(dayOfWeek);
         return convertView;
@@ -135,5 +184,9 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
     int getCheck() {
         return check;
+    }
+
+    ArrayList<String> returnChecked() {
+        return checkedList;
     }
 }

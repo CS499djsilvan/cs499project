@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:minHeight="400dp"
+    android:background="@drawable/dialogstyle">
+
+    <TextView
+    android:id="@+id/aboutTextview"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:text="About"
+    android:textSize="40sp"
+    android:textColor="@color/logoColor"
+    android:shadowColor="@color/black"
+    android:shadowDx="0"
+    android:shadowDy="0"
+    android:shadowRadius="12"
+    android:layout_margin="10sp"
+    android:paddingLeft="10sp"
+    android:paddingRight="10sp"/>
+
+    <TextView
+        android:id="@+id/aboutTextviewBody"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="About body"
+        android:textSize="18sp"
+        android:textColor="@color/logoColor"
+        android:shadowColor="@color/black"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="10"
+        android:layout_marginLeft="10sp"
+        android:layout_marginRight="10sp"/>
+    <Button
+        android:id="@+id/rateAppButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="60dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:background="@drawable/button_selector"
+        android:text="Rate this app on the Play Store"
+        android:layout_margin="15sp"
+        android:padding="10sp"/>
+
+    <Button
+        android:id="@+id/shareAppButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="60dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:background="@drawable/button_selector"
+        android:text="Share this app with friends!"
+        android:layout_marginLeft="15sp"
+        android:layout_marginRight="15sp"
+        android:layout_marginBottom="15sp"
+        android:padding="10sp"/>
+
+    <Button
+        android:id="@+id/exitButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Back"
+        android:textColor="@color/logoColor"
+        android:background="@drawable/button_selector_cancel"
+        android:layout_marginLeft="15sp"
+        android:layout_marginRight="15sp"
+        android:layout_marginBottom="10sp"
+        android:shadowColor="@color/black"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="20"/>
+</LinearLayout>

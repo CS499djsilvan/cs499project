@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:minHeight="450dp"
+    android:background="@drawable/dialogstyle">
+
+    <TextView
+        android:id="@+id/editJournalLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edit Journal Entry"
+        android:gravity="center_horizontal"
+        android:textSize="30sp"
+        android:textColor="@color/logoColor"
+        android:shadowColor="@color/black"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="15"
+        android:layout_gravity="center"
+        android:layout_marginTop="10sp"
+        android:paddingLeft="10sp"
+        android:paddingRight="10sp"/>
+
+    <EditText
+        android:id="@+id/dialogEditTitle"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:hint="Title here"
+        android:textColorHint="@color/black"
+        android:textColor="@color/black"
+        android:background="@drawable/textboxstyle"
+        android:layout_margin="10sp"
+        android:padding="10sp"/>
+
+    <EditText
+        android:id="@+id/dialogEditBody"
+        android:layout_weight="50"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:hint="Body here"
+        android:textColorHint="@color/black"
+        android:textColor="@color/black"
+        android:gravity="top"
+        android:background="@drawable/textboxstyle"
+        android:layout_marginLeft="10sp"
+        android:layout_marginRight="10sp"
+        android:layout_marginBottom="10sp"
+        android:padding="10sp"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="65dp">
+        <Button
+            android:id="@+id/saveButton"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/button_selector_confirm"
+            android:text="Save"
+            android:textColor="@color/logoColor"
+            android:shadowColor="@color/black"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="15"
+            android:layout_marginLeft="10sp"
+            android:layout_marginRight="2sp"
+            android:layout_marginBottom="10sp"/>
+        <Button
+            android:id="@+id/dialogCancelButtonTextfile"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/button_selector_cancel"
+            android:text="Cancel"
+            android:textColor="@color/logoColor"
+            android:shadowColor="@color/black"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="20"
+            android:layout_marginLeft="3sp"
+            android:layout_marginRight="10sp"
+            android:layout_marginBottom="10sp"/>
+    </LinearLayout>
+</LinearLayout>

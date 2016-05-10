@@ -6,6 +6,7 @@
     android:background="@drawable/nightsky">
 
     <TextView
+        android:id="@+id/tipScreenTitle"
         android:text="How to get better sleep"
         android:textSize="30dp"
         android:textColor="@color/logoColor"
@@ -25,6 +26,8 @@
         android:id="@+id/listView"
         android:background="@drawable/nightsky"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8sp"
+        android:layout_marginRight="8sp"/>
 
 </LinearLayout>

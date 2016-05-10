@@ -3,13 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
+        android:id="@+id/action_record"
+        android:icon="@drawable/plus"
+        android:title="Start new recording"
+        app:showAsAction="always"/>
+    <item
         android:id="@+id/action_delete"
         android:icon="@drawable/trashcan"
         android:title="Delete files"
         app:showAsAction="always"/>
     <item
-        android:id="@+id/action_record"
-        android:icon="@drawable/plus"
-        android:title="Start new recording"
+        android:id="@+id/action_settings"
+        android:icon="@drawable/settings"
+        android:title="@string/action_settings"
         app:showAsAction="always"/>
 </menu>

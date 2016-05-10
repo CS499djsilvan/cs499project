@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/logoColor">
+    android:background="@color/lavender">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/my_toolbar"
@@ -16,9 +16,12 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:text="Sleep Buddy"
-        android:textSize="30dp"
-        android:layout_marginLeft="50sp"
+        android:textSize="32sp"
+        android:layout_marginLeft="15sp"
         android:gravity="center_vertical"
+        android:paddingLeft="10sp"
+        android:paddingRight="10sp"
+        android:paddingBottom="5sp"
         android:textColor="@color/logoColor"/>
     </android.support.v7.widget.Toolbar>
 
@@ -28,7 +31,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="No files found.. Press the &quot;+&quot; button to save your first recording!"
+        android:text="No files found.. Press the &quot;+&quot; button to save your first journal entry!"
         android:textSize="28dp"
         android:textColor="@color/black"
         android:layout_marginTop="30dp"
@@ -38,7 +41,7 @@
     <ExpandableListView
         android:id="@+id/expandableListView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_gravity="center_horizontal"
         android:layout_below="@id/my_toolbar"/>
 
@@ -51,29 +54,37 @@
         android:visibility="gone">
 
         <Button
-            android:id="@+id/deleteButtonCancel"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@drawable/textstyle4"
-            android:text="Cancel"
-            android:textColor="@color/logoColor"
-            android:shadowColor="@color/black"
-            android:shadowDx="0"
-            android:shadowDy="0"
-            android:shadowRadius="20"/>
-        <Button
             android:id="@+id/deleteButtonOk"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/textstyle6"
+            android:background="@drawable/button_selector_teal"
             android:text="Delete"
             android:textColor="@color/logoColor"
             android:shadowColor="@color/black"
             android:shadowDx="0"
             android:shadowDy="0"
             android:shadowRadius="20"/>
+        <Button
+            android:id="@+id/deleteButtonCancel"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/button_selector_red"
+            android:text="Cancel"
+            android:textColor="@color/logoColor"
+            android:shadowColor="@color/black"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="20"/>
     </LinearLayout>
+
+    <android.support.design.widget.CoordinatorLayout
+        android:id="@+id/snackbarlocation"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true">
+    </android.support.design.widget.CoordinatorLayout>
 
 </RelativeLayout>

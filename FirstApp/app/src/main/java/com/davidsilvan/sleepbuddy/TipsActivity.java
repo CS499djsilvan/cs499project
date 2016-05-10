@@ -1,11 +1,13 @@
 package com.davidsilvan.sleepbuddy;
 
 import android.app.Activity;
+import android.graphics.Typeface;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -58,7 +60,10 @@ public class TipsActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tips_screen);
-        ButterKnife.bind(this);
+
+        Typeface titleFont = Typeface.createFromAsset(getAssets(), "fonts/LobsterTwo-BoldItalic.otf");
+        TextView tipScreenTitle = (TextView) findViewById(R.id.tipScreenTitle);
+        tipScreenTitle.setTypeface(titleFont);
 
         passcode = new int[] {0, 0, 0, 0, 0, 0, 0};
         listView = (ListView) findViewById(R.id.listView);

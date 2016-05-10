@@ -1,8 +1,12 @@
 package com.davidsilvan.sleepbuddy;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.ContentResolver;
+import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.util.Log;
@@ -15,11 +19,7 @@ import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.ToggleButton;
 import com.pes.androidmaterialcolorpickerdialog.ColorPicker;
-import java.util.Timer;
-import java.util.TimerTask;
-
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -40,14 +40,11 @@ public class NightlightActivity extends Activity {
     private SeekBar brightnessBar;
     private ContentResolver contentResolver;
     private Window window;
-    private Timer timer;
 
     @Bind(R.id.nightlight)
     RelativeLayout light;
     @Bind(R.id.brightnessText)
     TextView brightnessText;
-    @Bind(R.id.multiColorButton)
-    ToggleButton toggleButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,7 +65,6 @@ public class NightlightActivity extends Activity {
     @Override
     protected void onResume() {
         super.onResume();
-        timer = new Timer();
         setNightlightColor();
 
         try {
@@ -83,6 +79,7 @@ public class NightlightActivity extends Activity {
         brightnessBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                checkSystemWritePermission();
                 brightnessText.setText("Brightness: " + Integer.toString((int) (progress / 2.55)));
                 System.putInt(contentResolver, System.SCREEN_BRIGHTNESS, progress);
                 WindowManager.LayoutParams layoutParams = window.getAttributes();
@@ -116,8 +113,6 @@ public class NightlightActivity extends Activity {
         okColor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                timer.cancel();
-                toggleButton.setChecked(false);
                 colorRed = cp.getRed();
                 colorGreen = cp.getGreen();
                 colorBlue = cp.getBlue();
@@ -128,46 +123,18 @@ public class NightlightActivity extends Activity {
         });
     }
 
-    @OnClick(R.id.multiColorButton)
-    void onClickMultiColorButton() {
-        if (toggleButton.isChecked()) {
-            timer = new Timer();
-            timer.scheduleAtFixedRate(new TimerTask() {
-                @Override
-                public void run() {
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            if (colorRed > 0 && colorGreen == 255 && colorBlue == 255)
-                                colorRed--;
-                            if (colorRed == 0 && colorGreen > 0 && colorBlue == 255)
-                                colorGreen--;
-                            if (colorRed >= 0 && colorGreen == 0 && colorBlue > 0) {
-                                colorBlue--;
-                                colorRed++;
-                            }
-                            if (colorRed < 255 && colorGreen == 0 && colorBlue == 0)
-                                colorRed++;
-                            if (colorRed == 255 && colorGreen < 255 && colorBlue == 0)
-                                colorGreen++;
-                            if (colorRed > 0 && colorGreen == 255 && colorBlue == 0)
-                                colorRed--;
-                            if (colorRed == 0 && colorGreen > 0 && colorBlue < 255) {
-                                colorGreen--;
-                                colorBlue++;
-                            }
-                            setNightlightColor();
-                        }
-                    });
-                }
-            }, 0, 75);
-        }
-
-        else
-            timer.cancel();
-    }
-
     public void setNightlightColor() {
         light.setBackgroundColor(Color.rgb(colorRed, colorGreen, colorBlue));
+    }
+
+    private void checkSystemWritePermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            boolean retVal = Settings.System.canWrite(this);
+            if (!retVal) {
+                Intent intent = new Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS);
+                intent.setData(Uri.parse("package:" + NightlightActivity.this.getPackageName()));
+                startActivity(intent);
+            }
+        }
     }
 }

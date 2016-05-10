@@ -11,7 +11,6 @@ public class Tip {
         this.tip = tip;
     }
 
-
     public String getTip() {
         return tip;
     }
